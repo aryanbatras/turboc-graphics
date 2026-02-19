@@ -11,25 +11,36 @@ export default function Document() {
           dangerouslySetInnerHTML={{
             __html: `
               body, html {
-                height: 100%;
+                height: 100vh;
                 margin: 0;
                 padding: 0;
                 background-color: #000;
                 font-family: Arial, sans-serif;
+                overflow: hidden;
               }
               
               #dos-container {
-                width: 100%;
+                width: 100vw;
                 height: 100vh;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 background-color: #000;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 1;
               }
               
               #dos {
                 width: 100%;
                 height: 100%;
+              }
+              
+              #jsdos {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: contain;
               }
               
               #browser-warning {
@@ -42,7 +53,7 @@ export default function Document() {
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
                 cursor: pointer;
                 color: #000;
-                z-index: 1001;
+                z-index: 1002;
                 max-width: 80%;
               }
             `,
