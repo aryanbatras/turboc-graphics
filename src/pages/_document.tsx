@@ -38,8 +38,8 @@ export default function Document() {
               }
               
               #jsdos {
-                width: 100% !important;
-                height: 100% !important;
+                width: 100%;
+                max-height: 100vh;
                 object-fit: contain;
               }
               
