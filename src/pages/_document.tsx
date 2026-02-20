@@ -162,10 +162,10 @@ export default function Document() {
               }
               
               .arrow-buttons button {
-                padding: 20px !important;
-                min-width: 70px !important;
-                min-height: 70px !important;
-                font-size: 28px !important;
+                padding: 15px !important;
+                min-width: 50px !important;
+                min-height: 50px !important;
+                font-size: 20px !important;
                 border-radius: 0 !important;
                 background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
                 border: 3px solid rgba(255, 255, 255, 0.7) !important;
@@ -181,20 +181,20 @@ export default function Document() {
               }
               
               .mobile-buttons-right > button:not(.arrow-buttons button) {
-                padding: 50px 60px !important;
-                font-size: 32px !important;
+                padding: 25px 30px !important;
+                font-size: 18px !important;
                 background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
                 color: white !important;
-                border: 4px solid rgba(255, 255, 255, 0.9) !important;
+                border: 3px solid rgba(255, 255, 255, 0.9) !important;
                 border-radius: 0 !important;
                 cursor: pointer !important;
                 touch-action: none !important;
-                min-width: 180px !important;
-                min-height: 140px !important;
-                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), inset 0 2px 5px rgba(255, 255, 255, 0.3) !important;
-                font-weight: 900 !important;
+                min-width: 90px !important;
+                min-height: 70px !important;
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.3) !important;
+                font-weight: 700 !important;
                 text-transform: uppercase !important;
-                letter-spacing: 1px !important;
+                letter-spacing: 0.5px !important;
                 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
                 position: relative !important;
                 overflow: hidden !important;
@@ -232,23 +232,8 @@ export default function Document() {
                   fs.extract("/turbo.jsdos").then(() => {
                     main(["-conf", "/dosbox.conf"]).then((ci) => {
                       // Add mobile support controllers
-                      DosController.Move(ci.getParentDiv(), ci.getKeyEventConsumer());
                       DosController.Qwerty(ci.getParentDiv(), ci.getKeyEventConsumer());
-                      DosController.Gamepad(ci, {
-                        gamepads: [
-                          {
-                            keymap: {
-                              a: 13,  // Enter
-                              b: 27   // Escape
-                            },
-                            mapArrows: true,
-                            stickThreshold: 0.6
-                          }
-                        ],
-                        scanEvery: 200,
-                        scanOnTick: true
-                      });
-
+    
                       // Right container for arrows and keys
                       const rightContainer = document.createElement('div');
                       rightContainer.className = 'mobile-buttons-right';
